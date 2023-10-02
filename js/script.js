@@ -2,6 +2,8 @@
 
 const { createApp } = Vue;
 
+const DateTime = luxon.DateTime;
+
 createApp({
 
   data() {
@@ -191,27 +193,27 @@ createApp({
         lastMessageTime = contact.messages[contact.messages.length - 1].date
       }
       return lastMessageTime;
-      // return contact.messages[contact.messages.length - 1].date.substr(11,5);
+      // .substr(11,5);
     },
 
     addMessage(){
       const newSentMessageObj = {
-        date: '10/01/2020 15:51:00',
+        date: this.getTime(),
         message: this.newMessage,
         status: "sent"
       }
 
-      const newReceivedMessageObj = {
-        date: '10/01/2020 15:51:00',
-        message: "ok ;)",
-        status: "received"
-      }
-
       this.contacts[this.indexChat].messages.push(newSentMessageObj);
-
+      
       this.newMessage="";
-
+      
       setTimeout(() => {
+        const newReceivedMessageObj = {
+          date: this.getTime(),
+          message: "ok ;)",
+          status: "received"
+        }
+        
         this.contacts[this.indexChat].messages.push(newReceivedMessageObj);
       }, 1000);
     },
@@ -228,8 +230,14 @@ createApp({
 
     deleteMessage(message){
       this.contacts[this.indexChat].messages = this.contacts[this.indexChat].messages.filter((mess) => mess != message);
+    },
+
+    getTime(){
+      return DateTime.now().toLocaleString(DateTime.DATETIME_SHORT_WITH_SECONDS);
     }
   },
+
+
 
   mounted() {
     console.log("Montato");
