@@ -1,0 +1,21 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+  height: 100vh;
+  width: 100%;
+  background: linear-gradient(180deg, rgb(0, 150, 136) 10%, hwb(60 82% 14%) 10%);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container{
+  background-color: white;
+  width: 80%;
+  height: 95%;
+}
