@@ -101,11 +101,12 @@
 
         <!-- CONTENT CHAT -->
         <div class="content-chat">
-          <div
-            v-for="message in contacts[indexChat].messages"
-            :class="{ 'message-out': message.status === 'sent', 'message-in': message.status === 'received'}"
-            class="message">
+         <div
+           v-for="(message) in contacts[indexChat].messages"
+           :class="{ 'message-out': message.status === 'sent', 'message-in': message.status === 'received'}"
+           class="message">
             <p>{{message.message}}</p>
+            <i @click="deleteMessage(message)" class="fa-solid fa-chevron-down"></i>
             <p class="time">{{message.date}}</p>
           </div>
         </div>

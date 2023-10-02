@@ -231,6 +231,21 @@ body{
   color: #b1b1b1;
 }
 
+.message .fa-chevron-down{
+  opacity: 0;
+  cursor: pointer;
+
+  position: absolute;
+  top: 4px;
+  right: 8px;
+  
+  transition: 0.3s;
+}
+
+.message:hover .fa-chevron-down{
+  opacity: 1;
+}
+
 /* Send Message */
 .send-message{
   height: 70px;

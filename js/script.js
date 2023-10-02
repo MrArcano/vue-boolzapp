@@ -172,15 +172,28 @@ createApp({
       indexChat: 0,
       newMessage: "",
       filter: "",
+      viewDeleteMessage: false,
     }
   },
   methods: {
+
     lastMessage(contact){
-      return contact.messages[contact.messages.length - 1].message;
+      let lastMessage = "";
+      if(contact.messages.length > 0){
+        lastMessage = contact.messages[contact.messages.length - 1].message
+      }
+      return lastMessage;
     },
+
     lastMessageTime(contact){
-      return contact.messages[contact.messages.length - 1].date;
+      let lastMessageTime = "";
+      if(contact.messages.length > 0){
+        lastMessageTime = contact.messages[contact.messages.length - 1].date
+      }
+      return lastMessageTime;
+      // return contact.messages[contact.messages.length - 1].date.substr(11,5);
     },
+
     addMessage(){
       const newSentMessageObj = {
         date: '10/01/2020 15:51:00',
@@ -202,6 +215,7 @@ createApp({
         this.contacts[this.indexChat].messages.push(newReceivedMessageObj);
       }, 1000);
     },
+
     filterChat(){
       console.log(this.filter);
       this.contacts.forEach(contact => {
@@ -210,6 +224,10 @@ createApp({
           contact.visible = false;
         }
       });
+    },
+
+    deleteMessage(message){
+      this.contacts[this.indexChat].messages = this.contacts[this.indexChat].messages.filter((mess) => mess != message);
     }
   },
 
