@@ -195,7 +195,6 @@ createApp({
       indexChat: 0,
       newMessage: "",
       filter: "",
-      viewDeleteMessage: false,
     }
   },
   methods: {

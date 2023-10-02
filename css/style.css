@@ -43,11 +43,16 @@ body{
 
 /* MAIN CONTAINER */
 .main-container{
-  background-color: white;
   width: 80%;
   height: 95%;
-
+  
   display: flex;
+  
+  border-radius: 8px;
+  overflow: hidden;
+
+  background-color: white;
+  box-shadow:0 0 4px 0px rgba(0, 0, 0, 0.4);
 }
 
 /* ASIDE */
