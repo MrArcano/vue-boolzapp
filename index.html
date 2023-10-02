@@ -57,18 +57,18 @@
 
         <!-- Chat list -->
         <div class="chat-list">
-          <div v-for="contact in contacts" class="chat">
+          <div @click="indexChat = index" v-for="(contact , index) in contacts" class="chat">
             <div class="chat-left">
               <div class="icon">
                 <img :src="contact.avatar" alt="avatar_1">
               </div>
               <div class="info">
                 <p class="user-name">{{contact.name}}</p>
-                <p class="text">Ultimo messaggio inviato</p>
+                <p class="text">{{lastMessage(contact)}}</p>
               </div>
             </div>
             <div class="chat-right">
-              <p class="text">12:00</p>
+              <p class="text">{{lastMessageTime(contact)}}</p>
             </div>
           </div>
         </div>
@@ -79,10 +79,10 @@
         <div class="user-data">
           <div class="left-user">
             <div class="icon">
-              <img src="img/avatar_1.jpg" alt="avatar_1">
+              <img :src="contacts[indexChat].avatar">
             </div>
             <div class="info">
-              <p>Michele</p>
+              <p>{{contacts[indexChat].name}}</p>
               <p class="text">Ultimo accesso oggi alle 12:00</p>
             </div>
           </div>
@@ -96,30 +96,24 @@
 
         <!-- CONTENT CHAT -->
         <div class="content-chat">
-
-          <div class="message message-out">
-            <p>Hai portato a spasso il cane?</p>
-            <p class="time">15:30</p>
-          </div>
-          <div class="message message-out">
-            <p>Ricordati di stendere i panni</p>
-            <p class="time">15:50</p>
-          </div>
-
-          <div class="message message-in">
-            <p>Tutto fatto!</p>
-            <p class="time">16:15</p>
+          <div
+            v-for="message in contacts[indexChat].messages"
+            :class="{ 'message-out': message.status === 'sent', 'message-in': message.status === 'received'}"
+            class="message">
+            <p>{{message.message}}</p>
+            <p class="time">{{message.date}}</p>
           </div>
         </div>
         <!-- ********************************* -->
 
         <!-- SEND MESSAGE -->
-
         <div class="send-message">
           <i class="fa-regular fa-face-smile"></i>
           <input type="text" placeholder="Scrivi un messaggio">
           <i class="fa-solid fa-microphone"></i>
         </div>
+        <!-- ********************************* -->
+
       </div>
     </div>
   </div>

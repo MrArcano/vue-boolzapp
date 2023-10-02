@@ -168,11 +168,19 @@ createApp({
                 }
             ],
         }
-      ]
-    
+      ],
+      indexChat: 0,    
     }
   },
   methods: {
+    lastMessage(contact){
+      return contact.messages[contact.messages.length - 1].message;
+    },
+    lastMessageTime(contact){
+      return contact.messages[contact.messages.length - 1].date.substr(11,5);
+    }
+  },
+  computed: {
     
   },
 
