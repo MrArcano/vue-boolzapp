@@ -1,21 +1,123 @@
+/* GENERAL */
+/* ------------------------------- */
 *{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+html{
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+img{
+  max-height: 100%;
+}
+/* ------------------------------- */
+
+
+/* UTILITY */
+/* ------------------------------- */
+.icon{
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+/* ------------------------------- */
+
+/* Body Background */
 body{
   height: 100vh;
   width: 100%;
-  background: linear-gradient(180deg, rgb(0, 150, 136) 10%, hwb(60 82% 14%) 10%);
+  background: linear-gradient(180deg, rgb(0, 150, 136) 10%, hwb(60 82% 14%) 10%); 
+}
+
+#app{
+  height: 100%;
 
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.container{
+/* MAIN CONTAINER */
+.main-container{
   background-color: white;
   width: 80%;
   height: 95%;
+
+  display: flex;
 }
+
+/* ASIDE */
+/* ------------------------------- */
+.aside{
+  background-color: rgba(168, 26, 26, 0.267);
+  width: 35%;
+}
+
+/* User */
+/* ------------------------------- */
+.user-data{
+  background-color: #eaeaea;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+
+.left-user{
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.right-user{
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-right: 8px;
+
+  font-size: 1.3rem;
+  color: #b1b1b1;
+}
+/* User END ------------------------------- */
+
+/* Notification Setting */
+.notification-setting{
+  background-color: #8edafc;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.notification-setting .icon{
+  background-color: white;
+  color: #8edafc;
+  line-height: 50px;
+  text-align: center;
+  font-size: 1.3rem;
+}
+
+.notification-setting a{
+  font-size: 0.8rem;
+  color: #537b8e;
+}
+/* Notification Setting END ------------------------------- */
+
+/* Section chat */
+section.chat{
+  background-color: white;
+}
+
+/* Filter Chat */
+.filter-chat{
+  border: 1px solid black;
+  margin: 10px;
+}
+/* Filter Chat END ------------------------------- */
+
+
+/* ASIDE END ------------------------------- */

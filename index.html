@@ -5,14 +5,60 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- Vue -->
   <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
   <!-- Css custom -->
   <link rel="stylesheet" href="css/style.css">
   <title>Document</title>
 </head>
 <body>
   <div id="app">
-    <div class="container">
-  
+    <div class="main-container">
+      <div class="aside">
+
+        <!-- USER DATA -->
+        <div class="user-data">
+          <div class="left-user">
+            <div class="icon">
+              <img src="img/avatar_io.jpg" alt="avatar_io">
+            </div>
+            <p>Sofia</p>
+          </div>
+          <div class="right-user">
+            <i class="fa-solid fa-circle-notch"></i>
+            <i class="fa-solid fa-message"></i>
+            <i class="fa-solid fa-ellipsis-vertical"></i>
+          </div>
+        </div>
+        <!-- ********************************* -->
+
+        <!-- NOTIFICHE -->
+        <div class="notification-setting">
+          <div class="icon">
+            <i class="fa-solid fa-bell-slash"></i>
+          </div>
+          <div class="not-text">
+            <p>Ricevi notifiche di nuovi messaggi</p>
+            <p><a href="#">Attiva notifiche desktop</a></p>
+          </div>
+        </div>
+        <!-- ********************************* -->
+
+        <section class="chat">
+          
+          <!-- Filter Chat -->
+          <div class="filter-chat">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" placeholder="Cerca o inizia una nuova chat">
+          </div>
+          
+        </section>
+
+
+      </div>
+      <div class="content">RIGHT</div>
     </div>
   </div>
   
