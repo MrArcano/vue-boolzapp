@@ -53,8 +53,9 @@ body{
 /* ASIDE */
 /* ------------------------------- */
 .aside{
-  background-color: rgba(168, 26, 26, 0.267);
+  background-color: #fff;
   width: 35%;
+  min-width: 300px;
 }
 
 /* User */
@@ -99,6 +100,7 @@ body{
   line-height: 50px;
   text-align: center;
   font-size: 1.3rem;
+  flex-shrink: 0;
 }
 
 .notification-setting a{
@@ -107,17 +109,92 @@ body{
 }
 /* Notification Setting END ------------------------------- */
 
-/* Section chat */
-section.chat{
-  background-color: white;
+/* Filter Chat */
+.filter-container{
+  background-color: #fafafa;
+  padding: 8px;
 }
 
-/* Filter Chat */
 .filter-chat{
-  border: 1px solid black;
-  margin: 10px;
+  background-color: white;
+  padding: 4px;
+  border-radius: 8px;
+}
+
+.filter-chat .fa-magnifying-glass{
+  color: #b1b1b1;
+  width: 50px;
+  text-align: center;
+  font-size: 1.1rem;
+  vertical-align: middle;
+}
+
+.filter-chat input{
+  width: calc(100% - 50px);
+  border: none;
+  line-height: 2rem;
+  padding: 0 8px;
 }
 /* Filter Chat END ------------------------------- */
+.chat-list{
+  height: calc(100% - 196px);
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
 
+.chat{
+  /* height: calc(100% - 200px); */
+  
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+  
+}
+
+.chat:hover{
+  background-color: #e9ebeb;
+}
+
+.chat-left{
+  display: flex;
+  gap: 8px;
+}
+
+.chat .user-name{
+  font-size: 1.1rem;
+}
+.chat .text{
+  color: #bbc1cf;
+  font-size: 0.8rem;
+}
 
 /* ASIDE END ------------------------------- */
+
+/* CONTENT */
+.content{
+  width: 75%;
+  min-width: 370px;
+}
+
+.content .user-data .info .text{
+  font-size: 0.85rem;
+  color: #b1b1b1;
+}
+
+.content-chat{
+  height: calc(100% - 140px);
+  background-image: url(../img/mine.jpg);
+
+  overflow-y: scroll;
+  padding: 60px 100px;
+}
+
+.message{
+  width: 300px;
+  height: 50px;
+  background-color: white;
+  border-radius: 8px;
+
+  margin-bottom: 16px;
+}
