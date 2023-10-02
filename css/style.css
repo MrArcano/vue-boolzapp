@@ -144,13 +144,12 @@ body{
 }
 
 .chat{
-  /* height: calc(100% - 200px); */
-  
   padding: 10px;
   display: flex;
   justify-content: space-between;
   cursor: pointer;
   
+  position: relative;
 }
 
 .chat:hover{
@@ -168,6 +167,12 @@ body{
 .chat .text{
   color: #bbc1cf;
   font-size: 0.8rem;
+}
+
+.chat-right .text{
+  position: absolute;
+  top: 8px;
+  right: 8px;
 }
 
 /* ASIDE END ------------------------------- */

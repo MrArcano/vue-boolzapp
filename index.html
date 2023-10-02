@@ -11,7 +11,7 @@
 
   <!-- Css custom -->
   <link rel="stylesheet" href="css/style.css">
-  <title>Document</title>
+  <title>VUE Boolzapp</title>
 </head>
 <body>
   <div id="app">
@@ -83,7 +83,7 @@
             </div>
             <div class="info">
               <p>{{contacts[indexChat].name}}</p>
-              <p class="text">Ultimo accesso oggi alle 12:00</p>
+              <p class="text">Ultimo messaggio: {{lastMessageTime(contacts[indexChat])}}</p>
             </div>
           </div>
           <div class="right-user">
@@ -109,7 +109,7 @@
         <!-- SEND MESSAGE -->
         <div class="send-message">
           <i class="fa-regular fa-face-smile"></i>
-          <input type="text" placeholder="Scrivi un messaggio">
+          <input @keyup.enter="addMessage" v-model="newMessage" type="text" placeholder="Scrivi un messaggio">
           <i class="fa-solid fa-microphone"></i>
         </div>
         <!-- ********************************* -->

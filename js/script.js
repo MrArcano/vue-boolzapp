@@ -169,7 +169,8 @@ createApp({
             ],
         }
       ],
-      indexChat: 0,    
+      indexChat: 0,
+      newMessage: "",
     }
   },
   methods: {
@@ -177,15 +178,34 @@ createApp({
       return contact.messages[contact.messages.length - 1].message;
     },
     lastMessageTime(contact){
-      return contact.messages[contact.messages.length - 1].date.substr(11,5);
+      return contact.messages[contact.messages.length - 1].date;
+    },
+    addMessage(){
+      const newSentMessageObj = {
+        date: '10/01/2020 15:51:00',
+        message: this.newMessage,
+        status: "sent"
+      }
+
+      const newReceivedMessageObj = {
+        date: '10/01/2020 15:51:00',
+        message: "ok ;)",
+        status: "received"
+      }
+
+      this.contacts[this.indexChat].messages.push(newSentMessageObj);
+
+      this.newMessage="";
+
+      setTimeout(() => {
+        this.contacts[this.indexChat].messages.push(newReceivedMessageObj);
+      }, 1000);
     }
-  },
-  computed: {
-    
   },
 
   mounted() {
     console.log("Montato");
   },
+  
 
 }).mount("#app")
