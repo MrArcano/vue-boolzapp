@@ -144,12 +144,15 @@ body{
 }
 
 .chat{
-  padding: 10px;
   display: flex;
   justify-content: space-between;
   cursor: pointer;
   
   position: relative;
+}
+
+.chat .padding{
+  padding: 10px;
 }
 
 .chat:hover{

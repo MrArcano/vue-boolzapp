@@ -171,6 +171,7 @@ createApp({
       ],
       indexChat: 0,
       newMessage: "",
+      filter: "",
     }
   },
   methods: {
@@ -200,6 +201,15 @@ createApp({
       setTimeout(() => {
         this.contacts[this.indexChat].messages.push(newReceivedMessageObj);
       }, 1000);
+    },
+    filterChat(){
+      console.log(this.filter);
+      this.contacts.forEach(contact => {
+        contact.visible = true;
+        if(!contact.name.toLowerCase().includes(this.filter.toLowerCase())){
+          contact.visible = false;
+        }
+      });
     }
   },
 

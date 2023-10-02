@@ -50,25 +50,30 @@
         <div class="filter-container">
           <div class="filter-chat">
             <i class="fa-solid fa-magnifying-glass"></i>
-            <input type="text" placeholder="Cerca o inizia una nuova chat">
+            <input @keyup="filterChat()" v-model="filter" type="text" placeholder="Cerca o inizia una nuova chat">
           </div>
         </div>
         <!-- ********************************* -->
 
         <!-- Chat list -->
         <div class="chat-list">
-          <div @click="indexChat = index" v-for="(contact , index) in contacts" class="chat">
-            <div class="chat-left">
-              <div class="icon">
-                <img :src="contact.avatar" alt="avatar_1">
+          <div
+            @click="indexChat = index"
+            v-for="(contact , index) in contacts"
+            class="chat">
+            <div v-if="contact.visible" class="padding">
+              <div class="chat-left">
+                <div class="icon">
+                  <img :src="contact.avatar" alt="avatar_1">
+                </div>
+                <div class="info">
+                  <p class="user-name">{{contact.name}}</p>
+                  <p class="text">{{lastMessage(contact)}}</p>
+                </div>
               </div>
-              <div class="info">
-                <p class="user-name">{{contact.name}}</p>
-                <p class="text">{{lastMessage(contact)}}</p>
+              <div class="chat-right">
+                <p class="text">{{lastMessageTime(contact)}}</p>
               </div>
-            </div>
-            <div class="chat-right">
-              <p class="text">{{lastMessageTime(contact)}}</p>
             </div>
           </div>
         </div>
