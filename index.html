@@ -109,8 +109,12 @@
            :class="{ 'message-out': message.status === 'sent', 'message-in': message.status === 'received'}"
            class="message">
             <p>{{message.message}}</p>
-            <i @click="deleteMessage(message)" class="fa-solid fa-chevron-down"></i>
+            <i @click="message.dropdownFlag = !message.dropdownFlag" class="fa-solid fa-chevron-down"></i>
             <p class="time">{{message.date}}</p>
+            <div v-if="message.dropdownFlag" class="dropdown">
+              <p>Message info</p>
+              <p @click="deleteMessage(message)" >Delete message</p>
+            </div>
           </div>
         </div>
         <!-- ********************************* -->
