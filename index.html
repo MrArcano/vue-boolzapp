@@ -57,13 +57,13 @@
 
         <!-- Chat list -->
         <div class="chat-list">
-          <div class="chat">
+          <div v-for="contact in contacts" class="chat">
             <div class="chat-left">
               <div class="icon">
-                <img src="img/avatar_1.jpg" alt="avatar_1">
+                <img :src="contact.avatar" alt="avatar_1">
               </div>
               <div class="info">
-                <p class="user-name">Michele</p>
+                <p class="user-name">{{contact.name}}</p>
                 <p class="text">Ultimo messaggio inviato</p>
               </div>
             </div>
@@ -94,15 +94,32 @@
         </div>
         <!-- ********************************* -->
 
+        <!-- CONTENT CHAT -->
         <div class="content-chat">
-          <div class="message message-in">
-            messaggio in
+
+          <div class="message message-out">
+            <p>Hai portato a spasso il cane?</p>
+            <p class="time">15:30</p>
           </div>
           <div class="message message-out">
-            messaggio out
+            <p>Ricordati di stendere i panni</p>
+            <p class="time">15:50</p>
+          </div>
+
+          <div class="message message-in">
+            <p>Tutto fatto!</p>
+            <p class="time">16:15</p>
           </div>
         </div>
+        <!-- ********************************* -->
 
+        <!-- SEND MESSAGE -->
+
+        <div class="send-message">
+          <i class="fa-regular fa-face-smile"></i>
+          <input type="text" placeholder="Scrivi un messaggio">
+          <i class="fa-solid fa-microphone"></i>
+        </div>
       </div>
     </div>
   </div>
