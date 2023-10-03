@@ -200,6 +200,7 @@ body{
   border: none;
   line-height: 2rem;
   padding: 0 8px;
+  border-radius: 8px;
 }
 
 .dark .filter-chat input{
@@ -385,7 +386,11 @@ body{
 }
 
 .dropdown p:hover{
-  background-color: rgba(var(--bg-chat-light-rgb) , 0.5);
+  background-color: var(--bg-chat-active-light);
+}
+
+.dark .dropdown p:hover{
+  background-color: var(--bg-chat-active-dark);
 }
 
 /* Send Message */
