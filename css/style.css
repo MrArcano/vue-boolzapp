@@ -296,20 +296,15 @@ body{
 }
 /* CONTENT END --------------------------------*/
 
-body {
-  --body-colour: black;
+/* ScrollBar style */
+::-webkit-scrollbar {
+  width: 6px;
 }
 
-@media (prefers-color-scheme: dark) {
-  body {
-      --body-colour: white;
-  }
+::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.20);
 }
 
-body.light-mode {
-  --body-colour: black;
-}
-
-body.dark-mode {
-  --body-colour: white;
+::-webkit-scrollbar-track{
+  background: #ffffff;
 }
