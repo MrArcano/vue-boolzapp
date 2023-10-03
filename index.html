@@ -54,7 +54,7 @@
         <div class="filter-container">
           <div class="filter-chat">
             <i class="fa-solid fa-magnifying-glass"></i>
-            <input @keyup="filterChat()" v-model="filter" type="text" placeholder="Cerca o inizia una nuova chat">
+            <input @keyup="filterChat()" v-model.trim="filter" type="text" placeholder="Cerca o inizia una nuova chat">
           </div>
         </div>
         <!-- ********************************* -->
@@ -124,7 +124,7 @@
         <!-- SEND MESSAGE -->
         <div class="send-message">
           <i class="fa-regular fa-face-smile"></i>
-          <input @keyup.enter="addMessage" v-model="newMessage" type="text" placeholder="Scrivi un messaggio">
+          <input @keyup.enter="addMessage" v-model.trim="newMessage" type="text" placeholder="Scrivi un messaggio">
           <i class="fa-solid fa-microphone"></i>
         </div>
         <!-- ********************************* -->

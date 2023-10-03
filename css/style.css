@@ -6,6 +6,11 @@
   --bg-message-send-light: #d5f9ba;
   --bg-message-received-light: #ffffff;
 
+  --bg-top-bottom-light: #eaeaea;
+
+  --aside-light: #ffffff;
+  --bg-chat-active-light: #e9ebeb;
+
   /* DARK STYLE */
   --bg-chat-dark: rgb(11, 20, 26);
   --text-chat-light: #ffffff;
@@ -13,6 +18,11 @@
 
   --bg-message-send-dark: #005c4b;
   --bg-message-received-dark: #202c33;
+
+  --bg-top-bottom-dark: #202c33;
+
+  --aside-dark: #111b21;
+  --bg-chat-active-dark: #2a3942;
 }
 
 /* GENERAL */
@@ -58,6 +68,10 @@ body{
   align-items: center;
 }
 
+#app .dark{
+  color: white;
+}
+
 /* MAIN CONTAINER */
 .main-container{
   width: 80%;
@@ -75,19 +89,27 @@ body{
 /* ASIDE */
 /* ------------------------------- */
 .aside{
-  background-color: #fff;
+  background-color: var(--aside-light);
   width: 35%;
   min-width: 300px;
+}
+
+.dark .aside{
+  background-color: var(--aside-dark);
 }
 
 /* User */
 /* ------------------------------- */
 .user-data{
-  background-color: #eaeaea;
+  background-color: var(--bg-top-bottom-light);
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 10px;
+}
+
+.dark .user-data{
+  background-color: var(--bg-top-bottom-dark);
 }
 
 .left-user{
@@ -137,10 +159,18 @@ body{
   padding: 8px;
 }
 
+.dark .filter-container{
+  background-color: var(--aside-dark);
+}
+
 .filter-chat{
   background-color: white;
   padding: 4px;
   border-radius: 8px;
+}
+
+.dark .filter-chat{
+  background-color: var(--bg-top-bottom-dark);
 }
 
 .filter-chat .fa-magnifying-glass{
@@ -158,6 +188,18 @@ body{
   line-height: 2rem;
   padding: 0 8px;
 }
+
+.dark .filter-chat input{
+  background-color: var(--bg-top-bottom-dark);
+  color: white;
+}
+
+.dark .send-message input{
+  background-color: var(--bg-chat-active-dark);
+  color: white;
+}
+
+
 /* Filter Chat END ------------------------------- */
 .chat-list{
   height: calc(100% - 196px);
@@ -179,7 +221,12 @@ body{
 
 .chat:hover,
 .chat.active{
-  background-color: #e9ebeb;
+  background-color: var(--bg-chat-active-light);
+}
+
+.dark .chat:hover,
+.dark .chat.active{
+  background-color: var(--bg-chat-active-dark);
 }
 
 .chat-left{
@@ -253,10 +300,6 @@ body{
   padding: 16px;
 
   position: relative;
-}
-
-.dark .message{
-  color: white;
 }
 
 .message-out{
@@ -338,13 +381,17 @@ body{
   padding: 10px 30px;
   font-size: 1.3rem;
 
-  background-color: #f3eeea;
+  background-color: var(--bg-top-bottom-light);
   color: #6b7376;
 
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 30px;
+}
+
+.dark .send-message{
+  background-color: var(--bg-top-bottom-dark);
 }
 
 /* CONTENT END --------------------------------*/
