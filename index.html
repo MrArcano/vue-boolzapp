@@ -63,6 +63,7 @@
           <div
             @click="indexChat = index"
             v-for="(contact , index) in contacts"
+            :class="{'active': indexChat === index}"
             class="chat">
             <div v-if="contact.visible" class="padding">
               <div class="chat-left">

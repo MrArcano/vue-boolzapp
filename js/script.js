@@ -241,7 +241,6 @@ createApp({
     },
 
     filterChat(){
-      console.log(this.filter);
       this.contacts.forEach(contact => {
         contact.visible = true;
         if(!contact.name.toLowerCase().includes(this.filter.toLowerCase())){
