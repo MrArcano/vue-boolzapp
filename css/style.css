@@ -295,3 +295,21 @@ body{
   gap: 30px;
 }
 /* CONTENT END --------------------------------*/
+
+body {
+  --body-colour: black;
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+      --body-colour: white;
+  }
+}
+
+body.light-mode {
+  --body-colour: black;
+}
+
+body.dark-mode {
+  --body-colour: white;
+}

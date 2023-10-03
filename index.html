@@ -61,9 +61,9 @@
         <!-- Chat list -->
         <div class="chat-list">
           <div
-            @click="indexChat = index"
-            v-for="(contact , index) in contacts"
-            :class="{'active': indexChat === index}"
+            @click="contactActive = contact"
+            v-for="(contact) in contacts"
+            :class="{'active': contact === contactActive}"
             class="chat">
             <div v-if="contact.visible" class="padding">
               <div class="chat-left">
@@ -88,11 +88,11 @@
         <div class="user-data">
           <div class="left-user">
             <div class="icon">
-              <img :src="contacts[indexChat].avatar">
+              <img :src="contactActive.avatar">
             </div>
             <div class="info">
-              <p>{{contacts[indexChat].name}}</p>
-              <p class="text">Ultimo messaggio: {{lastMessageTime(contacts[indexChat])}}</p>
+              <p>{{contactActive.name}}</p>
+              <p class="text">Ultimo messaggio: {{lastMessageTime(contactActive)}}</p>
             </div>
           </div>
           <div class="right-user">
@@ -106,13 +106,13 @@
         <!-- CONTENT CHAT -->
         <div class="content-chat">
          <div
-           v-for="(message) in contacts[indexChat].messages"
+           v-for="(message) in contactActive.messages"
            :class="{ 'message-out': message.status === 'sent', 'message-in': message.status === 'received'}"
            class="message">
             <p>{{message.message}}</p>
-            <i @click="message.dropdownFlag = !message.dropdownFlag" class="fa-solid fa-chevron-down"></i>
+            <i @click="viewDropdown(message)" class="fa-solid fa-chevron-down"></i>
             <p class="time">{{message.date}}</p>
-            <div v-if="message.dropdownFlag" class="dropdown">
+            <div v-if="message === messageActive" class="dropdown">
               <p>Message info</p>
               <p @click="deleteMessage(message)" >Delete message</p>
             </div>
