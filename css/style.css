@@ -11,6 +11,8 @@
   --aside-light: #ffffff;
   --bg-chat-active-light: #e9ebeb;
 
+  --bg-notification-light: #8edafc;
+
   /* DARK STYLE */
   --bg-chat-dark: rgb(11, 20, 26);
   --text-chat-light: #ffffff;
@@ -23,6 +25,8 @@
 
   --aside-dark: #111b21;
   --bg-chat-active-dark: #2a3942;
+
+  --bg-notification-dark: #4e5e68;
 }
 
 /* GENERAL */
@@ -131,11 +135,16 @@ body{
 
 /* Notification Setting */
 .notification-setting{
-  background-color: #8edafc;
+  background-color: var(--bg-notification-light);
   padding: 10px;
   display: flex;
   align-items: center;
   gap: 8px;
+}
+
+.dark .notification-setting{
+  background-color: var(--bg-chat-active-dark);
+
 }
 
 .notification-setting .icon{
@@ -145,6 +154,10 @@ body{
   text-align: center;
   font-size: 1.3rem;
   flex-shrink: 0;
+}
+
+.dark .notification-setting .icon{
+  color: var(--bg-chat-active-dark);
 }
 
 .notification-setting a{
@@ -410,3 +423,20 @@ body{
   background: rgba(255, 255, 255, 0.8);
 }
 /* ------------------------------- */
+
+.toggle{
+  background-color: white;
+  padding: 4px 8px;
+  border-radius: 16px;
+
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  color: black;
+
+  cursor: pointer;
+}
+
+.toggle .active{
+  color: orange;
+}

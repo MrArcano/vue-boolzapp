@@ -30,7 +30,10 @@
             <p>Sofia</p>
           </div>
           <div class="right-user">
-            <button @click="toggleTheme = !toggleTheme" type="button">Toggle</button>
+            <div @click="toggleTheme = !toggleTheme" class="toggle">
+              <i class="fa-solid fa-sun" :class="{'active' : !toggleTheme}"></i>
+              <i class="fa-solid fa-moon" :class="{'active' : toggleTheme}"></i>
+            </div>
             <i class="fa-solid fa-circle-notch"></i>
             <i class="fa-solid fa-message"></i>
             <i class="fa-solid fa-ellipsis-vertical"></i>
