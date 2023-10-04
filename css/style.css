@@ -9,6 +9,7 @@
   --bg-top-bottom-light: #eaeaea;
 
   --aside-light: #ffffff;
+  --filter-container-light: #fafafa;
   --bg-chat-active-light: #e9ebeb;
 
   --bg-notification-light: #8edafc;
@@ -24,6 +25,7 @@
   --bg-top-bottom-dark: #202c33;
 
   --aside-dark: #111b21;
+  --filter-container-dark: #111b21;
   --bg-chat-active-dark: #2a3942;
 
   --bg-notification-dark: #4e5e68;
@@ -120,16 +122,16 @@ body{
   display: flex;
   align-items: center;
   gap: 8px;
+  padding-right: 8px;
 }
 
 .right-user{
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 8px;
   margin-right: 8px;
 
   font-size: 1.3rem;
-  color: #b1b1b1;
 }
 /* User END ------------------------------- */
 
@@ -168,18 +170,20 @@ body{
 
 /* Filter Chat */
 .filter-container{
-  background-color: #fafafa;
+
+  background-color: var(--filter-container-light);
   padding: 8px;
 }
 
 .dark .filter-container{
-  background-color: var(--aside-dark);
+  background-color: var(--filter-container-dark);
 }
 
 .filter-chat{
   background-color: white;
   padding: 4px;
   border-radius: 8px;
+  gap: 8px;
 }
 
 .dark .filter-chat{
@@ -196,7 +200,7 @@ body{
 
 .filter-chat input,
 .send-message input{
-  width: calc(100% - 50px);
+  width: 100%;
   border: none;
   line-height: 2rem;
   padding: 0 8px;
@@ -267,7 +271,7 @@ body{
 /* CONTENT */
 .content{
   width: 75%;
-  min-width: 518px;
+  min-width: 450px;
   border-left: 1px solid #d6d6d6;
 }
 
@@ -278,28 +282,15 @@ body{
 
 .content-chat{
   height: calc(100% - 140px);
-  
+
   background-color: var(--bg-chat-light);
+  background-image: url(../img/bg-chat-tile-dark.png);
 
   overflow-y: scroll;
-  padding: 60px 100px;
-
+  padding: 50px 50px;
   display: flex;
   flex-direction: column;
   align-items: center;
-
-  position: relative;
-}
-
-.content-chat::before{
-  background-image: url(../img/bg-chat-tile-dark.png);
-  opacity: 0.65;
-  position: absolute;
-  content: "";
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
 }
 
 .dark .content-chat{
@@ -396,16 +387,15 @@ body{
 /* Send Message */
 .send-message{
   height: 70px;
-  padding: 10px 30px;
+  padding: 8px 16px;
   font-size: 1.3rem;
 
   background-color: var(--bg-top-bottom-light);
-  color: #6b7376;
 
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 30px;
+  gap: 16px;
 }
 
 .dark .send-message{
@@ -432,19 +422,53 @@ body{
 /* TOGGLE THEME */
 .toggle{
   background-color: white;
-  padding: 4px 8px;
   border-radius: 16px;
-
+  height: 20px;
   display: flex;
   justify-content: space-between;
-  gap: 16px;
-  color: black;
-
+  align-items: center;
   cursor: pointer;
 }
 
-.toggle .active{
-  color: orange;
+.dark .toggle{
+  background-color: var(--aside-dark);
+} 
+
+.toggle .fa-sun,
+.toggle .fa-moon{
+  opacity: 0;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  line-height: 24px;
+  font-size: 0.9rem;
+  text-align: center;
+  scale: 1.5;
+  transition: opacity 0.1s, transform 0.5s;
+}
+
+.fa-sun{
+  transform: translateX(20px);
+}
+
+.fa-moon{
+  transform: translateX(-20px);
+}
+
+.toggle .fa-sun.active{
+  transform: translateX(-2px);
+  scale: 1;
+  opacity: 1;
+  color: white;
+  background-color: var(--aside-dark);
+}
+
+.toggle .fa-moon.active{
+  transform: translateX(2px);
+  scale: 1;
+  opacity: 1;
+  color: var(--aside-dark);
+  background-color: white;
 }
 /* ------------------------------- */
 
@@ -462,7 +486,25 @@ body{
 }
 /* ------------------------------- */
 
-.fa-solid:not(.toggle):hover{
+/* Hover icon */
+/* ------------------------------- */
+.fa-solid:not(.notification-setting .fa-solid, .toggle .fa-solid),
+.fa-face-smile{
+  color: #b1b1b1;
+  width: 32px;
+  height: 32px;
+  line-height: 32px;
+  text-align: center;
+  border-radius: 8px;
   cursor: pointer;
-  color: #4e4e4e;
+  flex-shrink: 0;
 }
+
+.fa-solid:not(.notification-setting .fa-solid, .toggle .fa-solid):hover,
+.fa-face-smile:hover{
+  color: #727272;
+  background-color: #b1b1b1;
+}
+/* ------------------------------- */
+
+
