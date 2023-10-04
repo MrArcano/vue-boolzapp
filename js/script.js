@@ -1,12 +1,9 @@
-// - Visualizzazione dinamica della lista contatti: tramite la direttiva v-for, visualizzare nome e immagine di ogni contatto
-
 const { createApp } = Vue;
 import { contacts } from "./db.js";
 
 const DateTime = luxon.DateTime;
 
 createApp({
-
   data() {
     return {
       contacts,
@@ -14,9 +11,10 @@ createApp({
       messageActive: null,
       newMessage: "",
       filter: "",
-      toggleTheme: false,
+      toggleTheme: true,
     }
   },
+  
   methods: {
 
     lastMessage(contact){
@@ -98,5 +96,4 @@ createApp({
     console.log("Montato");
   },
   
-
 }).mount("#app")

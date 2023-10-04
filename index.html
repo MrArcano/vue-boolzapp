@@ -96,13 +96,14 @@
             </div>
             <div class="info">
               <p>{{contactActive.name}}</p>
-              <p class="text">Ultimo messaggio: {{lastMessageTime(contactActive)}}</p>
+              <p v-if="!newMessage" class="text">Ultimo messaggio: {{lastMessageTime(contactActive)}}</p>
+              <p v-else class="text loading">Sta scrivendo</p>
             </div>
           </div>
           <div class="right-user">
             <i class="fa-solid fa-magnifying-glass"></i>
             <i class="fa-solid fa-paperclip"></i>
-            <i class="fa-solid fa-ellipsis-vertical"></i>
+            <i @click="contactActive.messages.length = 0" class="fa-solid fa-ellipsis-vertical"></i>
           </div>
         </div>
         <!-- ********************************* -->
