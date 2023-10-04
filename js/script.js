@@ -32,28 +32,33 @@ createApp({
     },
 
     addMessage(){
-      // creo il mio obj da pushare nell'array
-      const newSentMessageObj = {
-        date: this.getTime(),
-        message: this.newMessage,
-        status: "sent"
-      }
+      // fix v-model
+      this.newMessage = document.querySelector(".send-message input").value;
 
-      // pusho il mio oggetto
-      this.contactActive.messages.push(newSentMessageObj);
-      
-      // pulisco il campo newMessage
-      this.newMessage="";
-      
-      // Timer risposta cpu
-      setTimeout(() => {
-        const newReceivedMessageObj = {
+      if(this.newMessage){
+        // creo il mio obj da pushare nell'array
+        const newSentMessageObj = {
           date: this.getTime(),
-          message: "ok ;)",
-          status: "received"
+          message: this.newMessage,
+          status: "sent"
         }
-        this.contactActive.messages.push(newReceivedMessageObj);
-      }, 1000);
+  
+        // pusho il mio oggetto
+        this.contactActive.messages.push(newSentMessageObj);
+        
+        // pulisco il campo newMessage
+        this.newMessage="";
+        
+        // Timer risposta cpu
+        setTimeout(() => {
+          const newReceivedMessageObj = {
+            date: this.getTime(),
+            message: "ok ;)",
+            status: "received"
+          }
+          this.contactActive.messages.push(newReceivedMessageObj);
+        }, 1000);
+      }
     },
 
     filterChat(){
@@ -94,6 +99,18 @@ createApp({
   
   mounted() {
     console.log("Montato");
+    
+    // ADD emoji picker
+    new EmojiPicker({
+      trigger: [
+          {
+              selector: '.fa-face-smile',
+              insertInto: ['.send-message input'],
+          },
+      ],
+      closeButton: false,
+      specialButtons: "#646772",
+    });
   },
   
 }).mount("#app")

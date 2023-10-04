@@ -128,7 +128,13 @@
         <!-- SEND MESSAGE -->
         <div class="send-message">
           <i class="fa-regular fa-face-smile"></i>
-          <input @keyup.enter="addMessage" v-model.trim="newMessage" type="text" placeholder="Scrivi un messaggio">
+
+          <input
+            @keyup.enter="addMessage"
+            v-model.trim="newMessage"
+            type="text"
+            placeholder="Scrivi un messaggio">
+            
           <i class="fa-solid fa-microphone"></i>
         </div>
         <!-- ********************************* -->
@@ -136,7 +142,9 @@
       </div>
     </div>
   </div>
-  
+
+
+  <script src="./js/vanillaEmojiPicker.js"></script>
   <script type="module" src="./js/script.js"></script>
 </body>
 </html>
