@@ -12,6 +12,7 @@ createApp({
       newMessage: "",
       filter: "",
       toggleTheme: true,
+      toggleDeleteChat: false
     }
   },
   

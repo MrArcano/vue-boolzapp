@@ -103,7 +103,10 @@
           <div class="right-user">
             <i class="fa-solid fa-magnifying-glass"></i>
             <i class="fa-solid fa-paperclip"></i>
-            <i @click="contactActive.messages.length = 0" class="fa-solid fa-ellipsis-vertical"></i>
+            <i @click="toggleDeleteChat = !toggleDeleteChat" class="fa-solid fa-ellipsis-vertical"></i>
+            <div v-if="toggleDeleteChat" class="dropdown">
+              <p @click="contactActive.messages.length = 0, toggleDeleteChat = false">Delete all chat</p>
+            </div>
           </div>
         </div>
         <!-- ********************************* -->
