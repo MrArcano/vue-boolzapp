@@ -328,6 +328,10 @@ body{
   background-color: var(--bg-message-received-dark);
 }
 
+.message p{
+  word-break: break-all;
+}
+
 .message .time{
   position: absolute;
   bottom: 4px;
